@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: %i[ show edit update destroy ]
+  before_action :set_restaurant, only: %i[ show chef edit update destroy ]
 
   # GET /restaurants
   def index
@@ -8,6 +8,14 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/1
   def show
+  end
+
+  def chef
+
+  end
+
+  def top
+    @restaurants = Restaurant.where(rating: 5)
   end
 
   # GET /restaurants/new
